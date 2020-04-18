@@ -22,5 +22,6 @@ namespace JQueryAjax.Models
         public string SWIFTCode { get; set; }
         [Column(TypeName = "nvarchar(11)")]
         public int Amount { get; set; }
+        public DateTime Date { get; set; }
     }
 }
