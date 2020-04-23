@@ -13,6 +13,6 @@ namespace JQueryAjax.Models
 
         }
 
-        public DbSet<TransactionModel> transactionModels { get; set; }
+        public DbSet<TransactionModel> TransactionModels { get; set; }
     }
 }

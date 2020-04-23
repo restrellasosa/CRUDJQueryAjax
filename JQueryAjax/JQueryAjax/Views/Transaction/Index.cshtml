@@ -1,55 +1,13 @@
 ﻿@model IEnumerable<JQueryAjax.Models.TransactionModel>
 
-@{
-    ViewData["Title"] = "Index";
+@{ ViewData["Title"] = "Index"; }
+
+
+
+<div id="view-all">
+    @await Html.PartialAsync("_ViewAll", Model)
+</div>
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-
-<h1 class="text-center"><i class="fas fa-comment-dollar text-success"></i>Trasaction</h1>
-
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.AccountNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BeneficiaryName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            
-            <th>
-                @Html.DisplayNameFor(model => model.Amount)
-            </th>
-            <th>
-                <a asp-action="Create" class="btn btn-success text-white"><i class="fas fa-random"></i>New Transaction</a>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AccountNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BeneficiaryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            
-            <td>
-                @Html.DisplayFor(modelItem => item.Amount)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.TransactionId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TransactionId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TransactionId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
